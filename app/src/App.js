@@ -16,13 +16,14 @@ class App extends Component {
     }
     this.updateEvents = this.updateEvents.bind(this);
   }
-  componentWillMount() {
+  componentDidMount() {
 
     loadProgressBar()
 
     axios.get('https://www.eventbriteapi.com/v3/events/search/?sort_by=date&location.address=london&location.within=1km&price=free&date_modified.keyword=today&token=UYTUUYJSUH7A2FIGGOSI')
     .then((res) => {
       console.log(res.data.events);
+      console.log(res.data.events.length);
         this.setState(() => ({ data: res.data.events }))
     })
     .catch( (err) => {
@@ -54,7 +55,7 @@ class App extends Component {
         <ul>
           {data.map((event, i) => {
             return (
-              <Event data={event} />
+              <Event key={i} data={event} />
             )
           })}
         </ul>
