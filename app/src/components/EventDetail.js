@@ -12,6 +12,7 @@ class EventDetail extends Component {
         return (
             <div onClick={this.handleClick}>
                 <p>{this.props.event.name.text}</p>
+                <img src={this.props.event.logo.original.url} alt="logo" />
             </div>
         );
     }

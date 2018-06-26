@@ -12,6 +12,17 @@ class Event extends Component {
     render() {
         let data = this.props.data,
             i = this.props.i;
+
+        const Content = styled.div`
+            text-align: left;
+            height: 150px;
+            padding: 20px;
+            background: #ff9800;
+            background-image:url(${data.logo.original.url || ''});
+            background-repeat:no-repeat;
+            background-size:contain;
+            background-position:center;
+        `;
         return (
             <Container key={i} onClick={() => this.handleClick(data)}>
                 <Content>
@@ -57,10 +68,4 @@ const Container = styled.li`
         width: 25%;
         display: inline-block;
     }
-`;
-
-const Content = styled.div`
-    text-align: left;
-    padding: 20px;
-    background: rebeccapurple;
 `;

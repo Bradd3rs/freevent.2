@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {
       data: [],
       distance: 1,
-      details: false,
       event: null
     }
     this.updateEvents = this.updateEvents.bind(this);
@@ -57,7 +56,6 @@ class App extends Component {
     console.log(this.state.event)
     this.setState(() => (
       { 
-        details: true,
         event
       }
     ))
@@ -66,7 +64,6 @@ class App extends Component {
     console.log(event)
     this.setState(() => (
       { 
-        details: false,
         event: null
       }
     ))
